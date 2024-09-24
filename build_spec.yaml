@@ -27,7 +27,7 @@ steps:
 
           export REGISTRY="nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo"
           export PROJECT_NAME="dotnetapp"
-          export DEPLOYMENT_ENV="dotnetenvie"
+          export DEPLOYMENT_ENV="dotnetenvi"
           export IMAGE_CREATED_BY="OCIDevOps"
           export GIT_TAG="$(git describe --tags)"
           export DEPLOYMENT_DIRECTORY="${OCI_WORKSPACE_DIR}/deployment/${DEPLOYMENT_ENV}"
