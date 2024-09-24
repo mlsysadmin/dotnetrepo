@@ -16,16 +16,16 @@ steps:
     name: "Build container image"
     timeoutInSeconds: 3000
     command: |
-# Set deployment timeout
+      
       export DEPLOYMENT_TIMEOUT="120s"
 
-# Generate BUILDRUN_HASH
+      
       export BUILDRUN_HASH=$(echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7)
       echo "BUILDRUN_HASH: ${BUILDRUN_HASH}"
 
-# Define other environment variables
+      
       export REGISTRY="nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo"
-      export PROJECT_NAME="dotnet-app"
+      export PROJECT_NAME="dotnetapp"
       export DEPLOYMENT_ENV="dotnetenvi"
       export IMAGE_CREATED_BY="OCIDevOps"
       export GIT_TAG="$(git describe --tags 2>/dev/null || echo 'untagged')"
@@ -33,11 +33,9 @@ steps:
       export IMAGE_VERSION="$(echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7)-${IMAGE_CREATED_BY}"
       export DOCKER_TAG="${REGISTRY}/${PROJECT_NAME}:${IMAGE_VERSION}"
 
-# Build the Docker image
+    
       docker build -t ${DOCKER_TAG} .
-# If Dockerfile is in a different location, specify its path like below:
-# docker build -t ${DOCKER_TAG} -f path/to/your/Dockerfile .
-      
+
 outputArtifacts:
   - name: dockerimage
     type: DOCKER_IMAGE
