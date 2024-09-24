@@ -14,7 +14,7 @@ app: dotnet-app
 spec:
 containers:
 name: dotnet-app
-image: nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo/dotnetreg:latest
+image: nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo:latest
 imagePullPolicy: Always
 ports:
 - containerPort: 8080
