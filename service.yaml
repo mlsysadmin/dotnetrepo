@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+name: dotnet-app
+labels:
+app: dotnet-app
+annotations:
+oci.oraclecloud.com/load-balancer-type: "1b"
+spec:
+type: Load Balancer
+ports:
+port: 80
+targetPort: 8080
+selector:
+app: dotnet-app
