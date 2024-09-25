@@ -16,13 +16,10 @@ steps:
     name: "Build container image"
     timeoutInSeconds: 3000
     command: |
-      
+      set -x
       export DEPLOYMENT_TIMEOUT="120s"
-
-      
       export BUILDRUN_HASH=$(echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7)
       echo "BUILDRUN_HASH: ${BUILDRUN_HASH}"
-
       
       export REGISTRY="nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo"
       export PROJECT_NAME="dotnetapp"
@@ -33,8 +30,8 @@ steps:
       export IMAGE_VERSION="$(echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7)-${IMAGE_CREATED_BY}"
       export DOCKER_TAG="${REGISTRY}/${PROJECT_NAME}:${IMAGE_VERSION}"
 
-    
       docker build -t ${DOCKER_TAG} .
+
 
 outputArtifacts:
   - name: dockerimage
