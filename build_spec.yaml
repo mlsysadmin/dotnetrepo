@@ -16,7 +16,7 @@ steps:
     name: "Build container image"
     timeoutInSeconds: 3000
     command: |
-      set -x  # Enables shell debugging
+      set -x  
 
       
       echo "OCI_WORKSPACE_DIR: ${OCI_WORKSPACE_DIR}"
