@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dotnet-app
+  name: githubapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: dotnet-app
+      app: githubapp
   template:
     metadata:
       labels:
-        app: dotnet-app
+        app: githubapp
     spec:
       containers:
-      - name: dotnet-app
+      - name: githubapp
         image: nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo:latest
         imagePullPolicy: Always
         ports:

@@ -6,7 +6,7 @@ shell: bash
 env:
   variables:
     DEPLOYMENT_DIRECTORY: "${OCI_WORKSPACE_DIR}/deployment/${DEPLOYMENT_ENV}"
-    DOCKER_TAG: "nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo:latest"
+    DOCKER_TAG: "nrt.ocir.io/nrcbpbtrtyz0/githubrepo:latest"
   
   exportedVariables:
     - BUILDRUN_HASH    
@@ -30,8 +30,8 @@ steps:
       export BUILDRUN_HASH=$(echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7)
       echo "BUILDRUN_HASH: ${BUILDRUN_HASH}"
 
-      export REGISTRY="nrt.ocir.io/nrcbpbtrtyz0/dotnetrepo"
-      export PROJECT_NAME="dotnetapp"
+      export REGISTRY="nrt.ocir.io/nrcbpbtrtyz0/githubrepo"
+      export PROJECT_NAME="githubapp"
       export DEPLOYMENT_ENV="dotnetenvi"
       export IMAGE_CREATED_BY="OCIDevOps"
       export GIT_TAG="$(git describe --tags 2>/dev/null || echo 'untagged')"
